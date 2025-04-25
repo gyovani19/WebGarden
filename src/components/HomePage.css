@@ -1,0 +1,315 @@
+/* HomePage.css */
+:root {
+  --primary-green:   #4caf50;
+  --primary-purple:  #9c27b0;
+  --light-green:     #a5d6a7;
+  --light-purple:    #ce93d8;
+  --dark-green:      #2e7d32;
+  --dark-purple:     #6a1b9a;
+  --white:           #ffffff;
+  --light-gray:      #f5f5f5;
+  --dark-gray:       #333333;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  min-height: 100%;
+}
+
+.homepage-container {
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+}
+
+/* Header */
+.site-header {
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-purple));
+  color: var(--white);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.site-title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+.site-subtitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center center;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  color: var(--white);
+}
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.hero-description {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.cta-button {
+  background-color: var(--primary-purple);
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.cta-button:hover {
+  background-color: var(--dark-purple);
+  transform: translateY(-2px);
+}
+
+/* Features Section */
+.features-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: var(--white);
+}
+
+/* Plant Cards */
+.plant-card {
+  flex: 1 1 300px;
+  display: flex;
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  border-top: 5px solid var(--primary-green);
+  transition: transform 0.3s;
+}
+.plant-card:nth-child(2) {
+  border-top-color: var(--primary-purple);
+}
+.plant-card:nth-child(3) {
+  border-top-color: var(--light-purple);
+}
+.plant-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Plant Image Container */
+.plant-image-container {
+  flex: 0 0 150px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-right: 1rem;
+  position: relative;
+}
+.plant-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.plant-card:hover .plant-image {
+  transform: scale(1.05);
+}
+
+/* Dry Overlay on Hover */
+.plant-dry-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(76,175,79,0.94),
+    rgba(155,39,176,0.96)
+  );
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+  border-radius: 8px;
+  pointer-events: none;
+}
+.plant-card:hover .plant-dry-overlay {
+  opacity: 1;
+}
+.plant-dry-image {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.plant-card:hover .plant-dry-image {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Plant Content & Indicators */
+.plant-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.plant-text {
+  margin-bottom: 0.75rem;
+}
+.plant-title {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+  color: var(--dark-green);
+}
+.plant-description {
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+  line-height: 1.4;
+}
+.plant-indicators {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.indicator {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.indicator-label {
+  flex: 1;
+  font-weight: 600;
+}
+.indicator-bar {
+  flex: 2;
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  margin: 0 8px;
+  overflow: hidden;
+}
+.indicator-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
+}
+.indicator:nth-child(1) .indicator-fill {
+  background: linear-gradient(90deg, #1976d2, #64b5f6);
+}
+.indicator:nth-child(2) .indicator-fill {
+  background: linear-gradient(90deg, #d32f2f, #ef5350);
+}
+.indicator:nth-child(3) .indicator-fill {
+  background: linear-gradient(90deg, #ffa000, #ffca28);
+}
+.indicator-value {
+  flex: 1;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* About Section */
+.about-section {
+  background-color: var(--light-green);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.section-title {
+  font-size: 2rem;
+  color: var(--dark-green);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-purple);
+  border-radius: 2px;
+}
+.section-description {
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--dark-green);
+  color: var(--white);
+  padding: 2rem;
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.footer-link {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-link:hover {
+  color: var(--light-purple);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .hero-title { font-size: 2rem; }
+  .hero-description { font-size: 1rem; }
+  .features-section { padding: 3rem 1rem; }
+  .plant-card { flex-direction: column; max-width: 350px; }
+  .plant-image-container {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .site-title { font-size: 2rem; }
+  .site-subtitle { font-size: 1rem; }
+  .hero-section { height: 50vh; }
+  .hero-title { font-size: 1.8rem; }
+  .section-title { font-size: 1.8rem; }
+  .section-description { font-size: 1rem; }
+}
+@media (max-width: 480px) {
+  .hero-section { height: 40vh; }
+  .cta-button { padding: 0.7rem 1.5rem; font-size: 1rem; }
+  .plant-title { font-size: 1.1rem; }
+  .plant-description { font-size: 0.8rem; }
+}
