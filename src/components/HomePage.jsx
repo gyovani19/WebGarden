@@ -287,8 +287,7 @@ function HomePage() {
       <section className="about-section">
         <h2 className="section-title">Sobre Nós</h2>
         <p className="section-description">
-          Somos apaixonados por plantas e acreditamos que todos merecem um
-          pedacinho de natureza em suas vidas.
+          Lorem ipsum dolor sit amet. Aut nobis doloribus non deserunt consequuntur qui minima nihil.
         </p>
       </section>
 
